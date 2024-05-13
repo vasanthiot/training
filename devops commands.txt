@@ -1,0 +1,111 @@
+git config --global user.name "<name>" ==> to config user name
+git config --global user.email "<email id>" ==> to config user email id
+
+git config --list ==> to list configurations
+
+git init  ==> to initilize the project directory
+
+git status ==> to get status of commit status
+
+git add <filename> ==> to add a file into git project directory to follow
+
+git add . ==> to add all files into git project to follow
+
+git commit -m "comments" ==> to commit the files in the local repo
+
+git commit -am "comments" ==> to add and commit the files to local repo
+
+git diff ==> to check changes in the working directory and staging area
+git diff <filename> ==> to see the diffrence in file
+git diff <commit id pointer value1> <commit id pointer value2>
+
+
+git log ==> to view the last 10 commits logs
+
+git log --author="<name or email id>" ==> to view commit log from purticular user
+
+git log --oneline
+
+git log --oneline --graph
+
+git clone -b main <git hub url for this project> ==> to clone remote repo to local repo
+
+ssh-keygen -t <ed25519 - from github ssh key guide> -c "<github login email id>" ==> to generate ssh key pair to add user in git hub for authendication
+
+git push ==> to copy files from local repo to remote repo
+
+git pull ==> to copy remote repo to local repo
+
+git branch <branch name> ==> to create a branch
+
+git switch <branch name> ==> to switch to another branch
+gir checkout <branch name>
+
+git branch ==> to view the branches
+
+git branch -m <old branch name> <new branch name>  ==> to rename branch
+
+gir branch -d <branch name> ==> to delete a branch
+
+git branch -a ==> to list all branch
+
+
+
+git merge <branch name> ==> to merge branch with main
+git add .
+git commit
+
+git reset ==> to roll back complete file structure to previous commit
+
+git revert ==> to rollback files to previous commit and add it as a new commit
+
+(if commited to remote repo then revert is nicer way, if commit is in local repo then reset is the best way) 
+
+git log --oneline
+
+git reset --soft <commit id pointer value>  ==>only the commit pointer is got reverted, no changes to files
+
+git reset -- hard <commit id pointer value>  ==> complete reset to previous commit
+
+git revert head ==> to revert to the previous commit and add this point as new commit
+
+git stash ==> to sotp the work temp and fix the urgent task
+git stash list ==> to list teh stashed work
+git stash apply ==> to resume the work
+git stash drop ==> to delete the stashed work
+
+git stash -a ==> to stash track and untracked files
+
+git stash pop ==> it will retrack the stash file and remove the stash
+
+git stash save "<message for track files temp save of work>"
+git stash -a save "<message for untrack files temp save of work>"
+
+git stash show stash@{id} ==> to view the changes in track files
+
+git stash pop stash@{id} ==> to pop out purticular stash work
+git stash apply stash@{id} 
+
+
+https://github.com/anshulc55/Jenkins_Upgradev3/blob/master/Jenkins_Pipelines_Jenkins_Files/Sample_jenkinsfile
+
+
+
+jenkins password: 92e01c4af1a84b68a1366bd0a80aadc5
+
+
+This may also be found at: /root/.jenkins/secrets/initialAdminPassword
+
+
+
+
+
+
+
+
+
+
+
+
+
+
