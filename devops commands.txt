@@ -148,10 +148,38 @@ docker run -d -u root --privileged=true --volume /root/jenkins_home:/var/jenkins
 
 ---------------------------------------------------------------
 
+Start Nginx web-server in Docker 
+
+docker container run - -publish <host_port:container_port> <image_name>
 
 
+Stop Container foreground process 
+ctrl+c 
 
 
+Start Container in Background or detach mode 
+
+docker container run - -publish <host_port:container_port>- -detach <image_name>
+
+-------------------------------------------------------------------------------------------
+
+Docker Stop Docker Containers 
+
+docker container stop <container_id>
+
+
+List all running and stopped containers 
+
+docker containers ls 
+docker containers ls -a
+
+
+Run vs Start Container 
+
+run: start a new container always 
+start: start a existing containers
+
+----------------------------------------------------------------------------------------------
 
 
 
