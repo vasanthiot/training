@@ -182,6 +182,49 @@ start: start a existing containers
 ----------------------------------------------------------------------------------------------
 
 
+# Docker container names: 
+
+docker container run - -publish 80:80 - -detach - -name <Name> <Image_Name>
+
+
+# See logs of a specific container: 
+
+docker container logs <container_name>/<container_id>
+
+
+# See process running inside the containers: 
+
+docker container top <container_id>
+
+
+# Remove all unused containers: 
+
+docker container rm <space separated container ids>
+
+
+# View Docker container Resource Consumption: 
+
+docker stats [container_name or container_id]
+
+
+# Get detailed information about a container: 
+
+docker inspect [container_name or container_id]
+
+
+# Start Container in Interactive Mode: 
+
+docker run -it [image_name or image_id] [command] 
+    ○-i: Keep STDIN open even if not attached. 
+    ○-t: Allocate a pseudo-TTY (terminal).
+
+
+# Run Commands in Running Containers 
+
+docker exec [options] [container_name or container_id] [command] 
+    ○ [options]: Additional options you may want to include. 
+    ○ [container_name or container_id]: The name or ID of the running container. 
+    ○ [command]: The command to be executed inside the container.
 
 
 
