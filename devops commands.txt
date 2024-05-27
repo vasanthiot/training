@@ -258,16 +258,20 @@ docker run -d -e WORDPRESS_DB_HOST=mariadb -e WORDPRESS_DB_NAME=wpdb1 -e WORDPRE
 # so ned to create network to esablish connection.
 ----------------------------------------
 
-docker network create mynetwork
+docker network create wpnetwork
 
-# now need to pass --network mynetwork while run docker.
+docker network ls
 
-docker run -d -e MARIADB_ROOT_PASSWORD=123456 -e MARIADB_USER=wpuser1 -e MARIADB_PASSWORD=12345 -e MARIADB_DATABASE=wpdb1 --network mynetwork --name mariadb mariadb
+# now need to pass --network wpnetwork while run docker.
 
-docker run -d -e WORDPRESS_DB_HOST=mariadb -e WORDPRESS_DB_NAME=wpdb1 -e WORDPRESS_DB_USER=wpuser1 -e WORDPRESS_DB_PASSWORD=12345 -p 8081:80 --network mynetwork --name wordpress_mariadb wordpress
+docker run -d -u root --privileged=true --volume /opt/mariadb_home:/var/lib/mysql:Z  -e MARIADB_ROOT_PASSWORD=123456 -e MARIADB_USER=wpuser1 -e MARIADB_PASSWORD=12345 -e MARIADB_DATABASE=wpdb1 --network wpnetwork --name mariadb mariadb
 
+docker run -d -e WORDPRESS_DB_HOST=mariadb -e WORDPRESS_DB_NAME=wpdb1 -e WORDPRESS_DB_USER=wpuser1 -e WORDPRESS_DB_PASSWORD=12345 -p 8081:80 --network wpnetwork --name wordpress_mariadb wordpress
+
+# not required for workpress - (-u root --privileged=true --volume /opt/wordpress_home/workpress:/usr/src/wordpress --volume /opt/wordpress_home/html:/var/www/html )
 
 ***************************************************************************************************************
+
 
 
 
