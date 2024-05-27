@@ -250,7 +250,22 @@ docker run -d -e MARIADB_ROOT_PASSWORD=123456 -e MARIADB_USER=wpuser1 -e MARIADB
     ○ Expose Front-End Container on port 8080/80 
     ○ Access WebSite on LocalHost/HostIP:PORT 
 
-docker run -d -e WORDPRESS_DB_HOST=mariadb -e WORDPRESS_DB_NAME=wpdb1 -e WORDPRESS_DB_USER=wpuser1 -e WORDPRESS_DB_PASSWORD=12345 -p 8080:80 --name wordpress_mariadb wordpress
+docker run -d -e WORDPRESS_DB_HOST=mariadb -e WORDPRESS_DB_NAME=wpdb1 -e WORDPRESS_DB_USER=wpuser1 -e WORDPRESS_DB_PASSWORD=12345 -p 8081:80 --name wordpress_mariadb wordpress
+
+-------------------------------------
+# 192.168.1.91:8081 ---> Error establishing a database connection
+
+# so ned to create network to esablish connection.
+----------------------------------------
+
+docker network create mynetwork
+
+# now need to pass --network mynetwork while run docker.
+
+docker run -d -e MARIADB_ROOT_PASSWORD=123456 -e MARIADB_USER=wpuser1 -e MARIADB_PASSWORD=12345 -e MARIADB_DATABASE=wpdb1 --network mynetwork --name mariadb mariadb
+
+docker run -d -e WORDPRESS_DB_HOST=mariadb -e WORDPRESS_DB_NAME=wpdb1 -e WORDPRESS_DB_USER=wpuser1 -e WORDPRESS_DB_PASSWORD=12345 -p 8081:80 --network mynetwork --name wordpress_mariadb wordpress
+
 
 ***************************************************************************************************************
 
