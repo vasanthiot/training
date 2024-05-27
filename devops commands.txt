@@ -227,6 +227,33 @@ docker exec [options] [container_name or container_id] [command]
     ○ [command]: The command to be executed inside the container.
 
 
+***************************************************************************************************************
+
+Assignment:
+
+# Execute MariaDB Container First. 
+    ○ Make the Container name Static like - my-mariadb-container 
+    ○ Set the DB Root password using Env Variable - MARIADB_ROOT_PASSWORD 
+    ○ Set the DB Username using Env Variable - MARIADB_USER 
+    ○ Set the DB password using Env Variable - MARIADB_PASSWORD 
+    ○ Set the DB Name using Env Variable - MARIADB_DATABASE
+
+docker run -d -e MARIADB_ROOT_PASSWORD=123456 -e MARIADB_USER=wpuser1 -e MARIADB_PASSWORD=12345 -e MARIADB_DATABASE=wpdb1 --name mariadb mariadb
+
+
+# Execute Wordpress Container 
+    ○ Make the Container name Static like - wordpress-container 
+    ○ Set the DB Container Name in Env Variable - WORDPRESS_DB_HOST 
+    ○ Set the DB Name in Env Variable - WORDPRESS_DB_NAME 
+    ○ Set the DB User in Env Variable - WORDPRESS_DB_USER 
+    ○ Set the DB password in Env Variable - WORDPRESS_DB_PASSWORD 
+    ○ Expose Front-End Container on port 8080/80 
+    ○ Access WebSite on LocalHost/HostIP:PORT 
+
+docker run -d -e WORDPRESS_DB_HOST=mariadb -e WORDPRESS_DB_NAME=wpdb1 -e WORDPRESS_DB_USER=wpuser1 -e WORDPRESS_DB_PASSWORD=12345 -p 8080:80 --name wordpress_mariadb wordpress
+
+***************************************************************************************************************
+
 
 
 
