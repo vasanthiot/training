@@ -272,9 +272,70 @@ docker run -d -e WORDPRESS_DB_HOST=mariadb -e WORDPRESS_DB_NAME=wpdb1 -e WORDPRE
 
 ***************************************************************************************************************
 
+# Best Practice to create Networks : 
 
+network “sql_php_nwt” for mySQL and PHP Containers 
+network “mongo_nwt” for mongo and PHP Containers
 
+*******************************************************************************************
 
+# Start Container to allow traffic from Port on Host Machine: 
 
+docker container run -p <host_port>:<docker_port> -d image
 
+# Find the traffic and protocol on container: 
+
+docker port <container_id>
+
+# Find Docker Container IP 
+
+docker inspect <container_id>
+
+# Show All networks 
+
+docker network ls
+
+# Filter the Networks (To Filter all bridge network) 
+
+docker network -f drive=bridge
+
+# To find all Network IDs and Drivers 
+
+docker network ls --format "{{.ID}}: {{.Driver}}
+
+# Inspect any Network 
+
+docker network inspect
+
+********************************************************************************************************
+
+# List Docker Images 
+
+docker images
+
+# Download Docker Image. 
+
+docker pull <image_name>
+
+# Pull Specific Version 
+
+docker pull <Image_name>:<Image_version>
+
+# Show Image Layers: 
+
+docker history <image_name>
+
+# Images can be tagged explicitly with the help of Tag Command. 
+
+docker tag SOURCE_IMAGE[:TAG] TARGET_IMAGE[:TAG]
+
+--------------------------------------------------------------------------------------
+
+# Command to login: 
+
+docker login 
+
+# Push Image on Docker Hub: 
+
+docker image push USER/Image-name
 
