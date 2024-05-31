@@ -339,3 +339,56 @@ docker login
 
 docker image push USER/Image-name
 
+# Command to build image from Dockerfile: 
+
+docker build -f <dockerfile_path>
+
+
+# Docker Build Syntax : 
+
+docker build -t ImageName:TagName dir 
+    ➢-t − is to mention a tag to the image. 
+    ➢ ImageName − This is the name you want to give to your image. 
+    ➢ TagName − This is the tag you want to give to your image. 
+    ➢ Dir − The directory where the Docker File is present.
+
+----------------------------------------------------------------------------------
+
+# Run My SQL with named Volume 
+
+docker container run -d - -name mysql -e MYSQL_ALLOW_EMPTY_PASSWORD=True -v mysql-db:/var/lib/ mysql mysql 
+
+# Create Volumes 
+
+docker volume create <name> 
+
+# Remove Volume 
+
+docker volume rm <name>
+
+# Run My SQL with named Volume 
+
+docker container run -d --name mysqldb -e MYSQL_ALLOW_EMPTY_PASSWORD=True --mount source=mysql_db,target=/var/lib/mysql mysql:8.0.37-bookworm 
+
+------------------------------------------------------------------------------------
+
+# Run NGINX 
+
+docker container run -d --name nginx -p 8083:80 --mount type=bind,source=$(pwd),target=/usr/share/nginx/html/ nginx
+
+/usr/share/nginx/html/index.html
+
+----------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
